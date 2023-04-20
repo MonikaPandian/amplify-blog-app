@@ -22,15 +22,8 @@ export declare type SocialPostOverridesProps = {
     Article?: PrimitiveOverrideProps<FlexProps>;
     MyIcon29766860?: MyIconProps;
     "AWS Amplify Studio is a visual development environment for building full-stack web and mobile apps that grows with your business. Studio builds on existing backend building capabilities in AWS Amplify, allowing you to build your UI faster with a set of ready-to-use UI components that are editable in Figma. With Studio, you can quickly build an entire web app, front-to-back, with minimal coding, while still maintaining full control over your app design and behavior through code. Ship faster, scale effortlessly, and delight every user."?: PrimitiveOverrideProps<TextProps>;
-    Share29766862?: PrimitiveOverrideProps<FlexProps>;
-    Share29766863?: PrimitiveOverrideProps<TextProps>;
-    MyIcon29766864?: MyIconProps;
-    MyIcon29766865?: MyIconProps;
-    MyIcon29766866?: MyIconProps;
+    MyIcon36472689?: MyIconProps;
     image?: PrimitiveOverrideProps<ImageProps>;
-    "Read more29766868"?: PrimitiveOverrideProps<FlexProps>;
-    MyIcon29766869?: MyIconProps;
-    "Read more29766870"?: PrimitiveOverrideProps<TextProps>;
 } & EscapeHatchProps;
 export declare type SocialPostProps = React.PropsWithChildren<Partial<FlexProps> & {
     post?: Post;

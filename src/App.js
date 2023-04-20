@@ -1,9 +1,17 @@
 import './App.css';
-import SocialPostCollection from './ui-components/SocialPostCollection';
+import '@aws-amplify/ui-react/styles.css';
+import { Route, Routes } from "react-router-dom";
+import Post from './Post';
+import CreatePost from './CreatePost';
+import UpdatePost from './UpdatePost';
 
 function App() {
   return (
-    <SocialPostCollection />
+    <Routes>
+      <Route path="/" element={<Post />} />
+      <Route path="/post-create" element={<CreatePost />} />
+      <Route path="/post-update" element={<UpdatePost />} />
+    </Routes>
   );
 }
 

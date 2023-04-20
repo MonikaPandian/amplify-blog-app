@@ -6,17 +6,28 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import { Post } from "../models";
+import {
+  getOverrideProps,
+  useDataStoreUpdateAction,
+} from "@aws-amplify/ui-react/internal";
+import { schema } from "../models/schema";
 import { Flex, Image, Text } from "@aws-amplify/ui-react";
 import MyIcon from "./MyIcon";
 export default function SocialPost(props) {
   const { post, overrides, ...rest } = props;
+  const bodyOnClick = useDataStoreUpdateAction({
+    fields: {},
+    id: post?.id,
+    model: Post,
+    schema: schema,
+  });
   return (
     <Flex
       gap="16px"
       direction="column"
-      width="960px"
-      height="unset"
+      width="966px"
+      height="312px"
       justifyContent="flex-start"
       alignItems="flex-start"
       position="relative"
@@ -28,21 +39,23 @@ export default function SocialPost(props) {
       <Flex
         gap="40px"
         direction="row"
-        width="unset"
-        height="unset"
+        width="926px"
+        height="274px"
         justifyContent="flex-start"
         alignItems="flex-start"
         shrink="0"
-        alignSelf="stretch"
         position="relative"
         padding="0px 0px 0px 0px"
+        onClick={() => {
+          bodyOnClick();
+        }}
         {...getOverrideProps(overrides, "Body")}
       >
         <Flex
           gap="16px"
           direction="column"
           width="unset"
-          height="unset"
+          height="270px"
           justifyContent="flex-start"
           alignItems="flex-start"
           grow="1"
@@ -203,84 +216,21 @@ export default function SocialPost(props) {
               )}
             ></Text>
           </Flex>
-          <Flex
-            gap="16px"
-            direction="row"
-            width="unset"
-            height="unset"
-            justifyContent="flex-start"
-            alignItems="flex-start"
-            shrink="0"
-            position="relative"
-            padding="0px 0px 0px 0px"
-            {...getOverrideProps(overrides, "Share29766862")}
-          >
-            <Text
-              fontFamily="Inter"
-              fontSize="16px"
-              fontWeight="400"
-              color="rgba(92,102,112,1)"
-              lineHeight="24px"
-              textAlign="left"
-              display="block"
-              direction="column"
-              justifyContent="unset"
-              letterSpacing="0.01px"
-              width="unset"
-              height="unset"
-              gap="unset"
-              alignItems="unset"
-              shrink="0"
-              position="relative"
-              padding="0px 0px 0px 0px"
-              whiteSpace="pre-wrap"
-              children="Share"
-              {...getOverrideProps(overrides, "Share29766863")}
-            ></Text>
-            <MyIcon
-              width="24px"
-              height="24px"
-              display="block"
-              gap="unset"
-              alignItems="unset"
-              justifyContent="unset"
-              overflow="hidden"
-              shrink="0"
-              position="relative"
-              padding="0px 0px 0px 0px"
-              type="bookmark_border"
-              {...getOverrideProps(overrides, "MyIcon29766864")}
-            ></MyIcon>
-            <MyIcon
-              width="24px"
-              height="24px"
-              display="block"
-              gap="unset"
-              alignItems="unset"
-              justifyContent="unset"
-              overflow="hidden"
-              shrink="0"
-              position="relative"
-              padding="0px 0px 0px 0px"
-              type="share"
-              {...getOverrideProps(overrides, "MyIcon29766865")}
-            ></MyIcon>
-            <MyIcon
-              width="24px"
-              height="24px"
-              display="block"
-              gap="unset"
-              alignItems="unset"
-              justifyContent="unset"
-              overflow="hidden"
-              shrink="0"
-              position="relative"
-              padding="0px 0px 0px 0px"
-              type="more_vert"
-              {...getOverrideProps(overrides, "MyIcon29766866")}
-            ></MyIcon>
-          </Flex>
         </Flex>
+        <MyIcon
+          width="24px"
+          height="24px"
+          display="block"
+          gap="unset"
+          alignItems="unset"
+          justifyContent="unset"
+          overflow="hidden"
+          shrink="0"
+          position="relative"
+          padding="0px 0px 0px 0px"
+          type="edit"
+          {...getOverrideProps(overrides, "MyIcon36472689")}
+        ></MyIcon>
         <Image
           width="160px"
           height="160px"
@@ -296,59 +246,6 @@ export default function SocialPost(props) {
           src={post?.image}
           {...getOverrideProps(overrides, "image")}
         ></Image>
-      </Flex>
-      <Flex
-        gap="16px"
-        direction="row"
-        width="unset"
-        height="unset"
-        justifyContent="flex-start"
-        alignItems="flex-start"
-        shrink="0"
-        alignSelf="stretch"
-        position="relative"
-        padding="0px 0px 0px 0px"
-        {...getOverrideProps(overrides, "Read more29766868")}
-      >
-        <MyIcon
-          width="24px"
-          height="24px"
-          display="block"
-          gap="unset"
-          alignItems="unset"
-          justifyContent="unset"
-          overflow="hidden"
-          shrink="0"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          type="arrow-right"
-          {...getOverrideProps(overrides, "MyIcon29766869")}
-        ></MyIcon>
-        <Text
-          fontFamily="Inter"
-          fontSize="16px"
-          fontWeight="400"
-          color="rgba(13,26,38,1)"
-          lineHeight="24px"
-          textAlign="left"
-          display="block"
-          direction="column"
-          justifyContent="unset"
-          textDecoration="underline"
-          letterSpacing="0.01px"
-          width="unset"
-          height="unset"
-          gap="unset"
-          alignItems="unset"
-          grow="1"
-          shrink="1"
-          basis="0"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          whiteSpace="pre-wrap"
-          children="Read more"
-          {...getOverrideProps(overrides, "Read more29766870")}
-        ></Text>
       </Flex>
     </Flex>
   );
